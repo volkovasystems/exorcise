@@ -1,0 +1,28 @@
+{
+  "name": "exorcise",
+  "version": "0.0.0",
+  "description": "Cleanse as you exit.",
+  "main": "exorcise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/exorcise.git"
+  },
+  "keywords": [
+    "clean",
+    "graceful",
+    "exit",
+    "exorcise"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/exorcise/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/exorcise#readme",
+  "dependencies": {
+    "called": "0.0.5"
+  }
+}
