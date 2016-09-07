@@ -1,6 +1,6 @@
 {
   "name": "exorcise",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Cleanse as you exit.",
   "main": "exorcise.js",
   "scripts": {
@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/volkovasystems/exorcise#readme",
   "dependencies": {
-    "called": "0.0.5"
+    "called": "^0.1.2"
   }
 }
