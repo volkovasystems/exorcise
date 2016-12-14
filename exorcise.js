@@ -32,6 +32,9 @@
 			"file": "exorcise.js",
 			"module": "exorcise",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/exorcise.git",
 			"test": "exorcise-test.js",
@@ -50,9 +53,9 @@
 	@end-include
 */
 
-var called = require( "called" );
+const called = require( "called" );
 
-var exorcise = function exorcise( procedure ){
+const exorcise = function exorcise( procedure ){
 	/*;
 		@meta-configuration:
 			{
@@ -61,9 +64,8 @@ var exorcise = function exorcise( procedure ){
 		@end-meta-configuration
 	*/
 
-	var self = this;
-	if( !this ||
-		this === global )
+	let self = this;
+	if( !this || this === global )
 	{
 		self = global;
 	}

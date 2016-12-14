@@ -1,6 +1,6 @@
 {
   "name": "exorcise",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Cleanse as you exit.",
   "main": "exorcise.js",
   "scripts": {
@@ -17,12 +17,15 @@
     "exorcise"
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "contributors": [
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/volkovasystems/exorcise/issues"
   },
   "homepage": "https://github.com/volkovasystems/exorcise#readme",
   "dependencies": {
-    "called": "^0.1.2"
+    "called": "^0.4.0"
   }
 }
