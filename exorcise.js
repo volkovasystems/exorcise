@@ -1,5 +1,3 @@
-"use strict";
-
 /*;
 	@module-license:
 		The MIT License (MIT)
@@ -45,17 +43,25 @@
 	@end-module-configuration
 
 	@module-documentation:
+		Cleanse as you exit.
+
 		Register handler to exit, SIGTERM and SIGINT but will only run once.
 	@end-module-documentation
 
 	@include:
 		{
-			"called": "called"
+			"called": "called",
+			"falzy": "falzy",
+			"protype": "protype",
+			"zelf": "zelf"
 		}
 	@end-include
 */
 
 const called = require( "called" );
+const falzy = require( "falzy" );
+const protype = require( "protype" );
+const zelf = require( "zelf" );
 
 const exorcise = function exorcise( procedure ){
 	/*;
@@ -66,13 +72,11 @@ const exorcise = function exorcise( procedure ){
 		@end-meta-configuration
 	*/
 
-	let self = this;
-	if( !this || this === global )
-	{
-		self = global;
+	if( falzy( procedure ) || !protype( procedure, FUNCTION ) ){
+		throw new Error( "invalid procedure" );
 	}
 
-	procedure = called.bind( self )( procedure );
+	procedure = called.bind( zelf( this ) )( procedure );
 
 	process.once( "exit", procedure );
 	process.once( "SIGTERM", procedure );
