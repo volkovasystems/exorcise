@@ -81,6 +81,12 @@ const exorcise = function exorcise( procedure ){
 	process.once( "exit", procedure );
 	process.once( "SIGTERM", procedure );
 	process.once( "SIGINT", procedure );
+
+	return called( function release( ){
+		process.removeListener( "exit", procedure );
+		process.removeListener( "SIGTERM", procedure );
+		process.removeListener( "SIGINT", procedure );
+	} );
 };
 
 module.exports = exorcise;
