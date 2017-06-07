@@ -46,6 +46,8 @@
 		Cleanse as you exit.
 
 		Register handler to exit, SIGTERM and SIGINT but will only run once.
+
+		Modify EXIT_HANDLER_MAX_LISTENER_BUFFER_GAP to customized the setting of max listeners.
 	@end-module-documentation
 
 	@include:
@@ -63,6 +65,8 @@ const falzy = require( "falzy" );
 const protype = require( "protype" );
 const zelf = require( "zelf" );
 
+const BUFFER_GAP = process.env.EXIT_HANDLER_MAX_LISTENER_BUFFER_GAP || 5;
+
 const exorcise = function exorcise( procedure ){
 	/*;
 		@meta-configuration:
@@ -78,14 +82,21 @@ const exorcise = function exorcise( procedure ){
 
 	procedure = called.bind( zelf( this ) )( procedure );
 
+
 	process.once( "exit", procedure );
 	process.once( "SIGTERM", procedure );
 	process.once( "SIGINT", procedure );
+
+	process.setMaxListeners( process.getMaxListeners( ) + BUFFER_GAP );
 
 	return called( function release( ){
 		process.removeListener( "exit", procedure );
 		process.removeListener( "SIGTERM", procedure );
 		process.removeListener( "SIGINT", procedure );
+
+		process.nextTick( function tick( ){
+			process.setMaxListeners( process.getMaxListeners( ) );
+		} );
 	} );
 };
 

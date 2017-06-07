@@ -1,6 +1,6 @@
 {
   "name": "exorcise",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "description": "Cleanse as you exit.",
   "main": "exorcise.js",
   "scripts": {
